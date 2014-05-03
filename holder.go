@@ -1,4 +1,4 @@
-package floodgate
+package main
 
 import (
   "fmt"

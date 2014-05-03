@@ -1,4 +1,4 @@
-package floodgate
+package main
 
 import (
   "net/http"
@@ -42,13 +42,4 @@ func (dh *Floodgate) Hold() {
 
 func (dh *Floodgate) Release() {
   dh.holder.StateChanger <- true
-}
-
-func main() {
-  handler := NewFloodgate("http://localhost:81")
-
-  http.Handle("/", handler)
-  http.HandleFunc("/hold", func(http.ResponseWriter, *http.Request){ handler.Hold() })
-  http.HandleFunc("/release", func(http.ResponseWriter, *http.Request){ handler.Release() })
-  http.ListenAndServe(":8081", nil)
 }
