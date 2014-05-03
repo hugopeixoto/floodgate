@@ -20,5 +20,4 @@ You probably shouldn't be holding connections for more than a few seconds, but t
 
 ## Missing features
 
-- Different http server port for issuing hold/release commands.
 - Configurability (remove the hardcoded paths and ports).
