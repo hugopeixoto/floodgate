@@ -2,6 +2,7 @@ package main
 
 import (
   "net/http"
+  "flag"
 )
 
 type Stream struct {
@@ -21,7 +22,15 @@ func RunFloodgate(stream Stream) {
 }
 
 func main() {
-  defaultStream := Stream{"http://localhost:81", ":8081", ":8082"}
+  var (
+    target_address  = flag.String("target", "http://localhost:81", "location of the service being protected")
+    listen_address  = flag.String("listen", ":8081", "adddress for floodgate proxy")
+    control_address = flag.String("control", ":8082", "address for the control entrypoints")
+  )
+
+  flag.Parse()
+
+  defaultStream := Stream{*target_address, *listen_address, *control_address}
 
   RunFloodgate(defaultStream)
 

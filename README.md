@@ -3,7 +3,6 @@
 NOTE: This is unusable for now, and it has never been battle tested.
 
 
-
 Inspired by Braintree's Broxy architecture (http://drewolson.org/braintree_ha/presentation.html#slide-27).
 
 Place floodgate between your nginx/thing and your application server.
@@ -20,4 +19,4 @@ You probably shouldn't be holding connections for more than a few seconds, but t
 
 ## Missing features
 
-- Configurability (remove the hardcoded paths and ports).
+- Configure the counter queue logging mechanism
