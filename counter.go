@@ -1,7 +1,7 @@
 package main
 
 import (
-  "fmt"
+  "log"
   "time"
 )
 
@@ -37,5 +37,5 @@ func (c *Counter) Run() {
 }
 
 func (c *Counter) register() {
-  fmt.Printf("Queued requests: %v, handled %v\n", c.queued, c.handled)
+  log.Printf("queued requests: %v, handled %v", c.queued, c.handled)
 }

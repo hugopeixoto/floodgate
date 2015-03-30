@@ -1,7 +1,7 @@
 package main
 
 import (
-  "fmt"
+  "log"
 )
 
 type Holder struct {
@@ -27,7 +27,11 @@ func (h *Holder) Hold() {
 func (h *Holder) UpdateState(state bool) {
   h.Active = state
 
-  fmt.Printf("Changing state: %v\n", h.Active)
+  if h.Active {
+    log.Println("releasing traffic")
+  } else {
+    log.Println("holding traffic")
+  }
 }
 
 func (h *Holder) Run() {
